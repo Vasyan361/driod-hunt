@@ -24,7 +24,7 @@ void setup() {
     initWiFi();
 
     statusContainer.init();
-    transmitter.init(droidAddresses, &statusContainer);
+    transmitter.init(droidAddresses);
     receiver.init();
     displayMenu.init(&statusContainer, &receiver);
     buttonsControl.init(&displayMenu, &transmitter);
@@ -36,7 +36,6 @@ void loop() {
 
         buttonsControl.readInput();
         displayMenu.navigate();
-        transmitter.pushStatusToContainer();
         transmitter.send();
     }
 }
