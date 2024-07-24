@@ -1,0 +1,197 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/cores/esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/variants/esp32s2"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "WiFi.h",
+    "Includepath": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/Wire/src"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "Adafruit_GFX.h",
+    "Includepath": "/home/vasya/Arduino/libraries/Adafruit_GFX_Library"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "Adafruit_I2CDevice.h",
+    "Includepath": "/home/vasya/Arduino/libraries/Adafruit_BusIO"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "SPI.h",
+    "Includepath": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/SPI/src"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "Adafruit_SH110X.h",
+    "Includepath": "/home/vasya/Arduino/libraries/Adafruit_SH110X"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "OneButton.h",
+    "Includepath": "/home/vasya/Arduino/libraries/OneButton/src"
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/Hunter.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/Devices/ButtonsControl.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/Devices/Display.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/EspNow/Receiver.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/EspNow/StatusContainer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/EspNow/Transmitter.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/Logic/DisplayMenu.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/arduino/droid-hunt/build/sketch/src/Logic/HunterLogic.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFi.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiAP.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiClient.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiGeneric.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiMulti.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiSTA.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiScan.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiServer.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/WiFi/src/WiFiUdp.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/Wire/src/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GFX.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_GFX_Library/Adafruit_GrayOLED.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_GFX_Library/Adafruit_SPITFT.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_GFX_Library/glcdfont.c",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_BusIO/Adafruit_BusIO_Register.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_BusIO/Adafruit_I2CDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_BusIO/Adafruit_SPIDevice.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/.arduino15/packages/esp32/hardware/esp32/2.0.12/libraries/SPI/src/SPI.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_SH110X/Adafruit_SH1106G.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_SH110X/Adafruit_SH1107.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/Adafruit_SH110X/Adafruit_SH110X.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/vasya/Arduino/libraries/OneButton/src/OneButton.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
