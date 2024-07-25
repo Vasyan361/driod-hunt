@@ -58,7 +58,7 @@ void Display::mainScreen()
 
     for (uint8_t i = 0; i < MAX_DROIDS_COUNT; i++)
     {
-        if (STATUS_CONNECTED == statusContainer->getStatus(i))
+        if (STATUS_CONNECTED == receiver->getConnectionStatus(i))
         {
             oled.printf(" %d %s %d\n", i + 1, statusMap[statusContainer->getStatus(i)], receiver->getDistance(i));
         } else {
