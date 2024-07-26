@@ -1,10 +1,9 @@
 #include "ButtonsControl.h"
 
-void ButtonsControl::init(DisplayMenu* displayMenu, Transmitter* transmitter)
+void ButtonsControl::init(DisplayMenu* displayMenu)
 
 {
     ButtonsControl::displayMenu = displayMenu;
-    ButtonsControl::transmitter = transmitter;
 
     buttons[BACK_BUTTON].attachClick([](void *scope) { ((ButtonsControl *) scope)->backButtonClick();}, this);
     buttons[UP_BUTTON].attachClick([](void *scope) { ((ButtonsControl *) scope)->upButtonClick();}, this);
@@ -42,5 +41,5 @@ void ButtonsControl::okButtonClick()
 
 void ButtonsControl::callButtonClick()
 {
-    transmitter->setCode(1);
+    displayMenu->callButtonClick();
 }

@@ -14,8 +14,8 @@
 class Display {
     public:
         void init(StatusContainer* statusContainer, Receiver* receiver);
-        void setPointer(int pointer);
-        void mainScreen();
+        void setPointer(uint8_t pointer);
+        void mainScreen(int16_t callInterval, int16_t betWeenCallInterval);
         void droidSettingsScreen(uint8_t serialNumber);
         void settingsScreen();
         void okScreen();
@@ -27,7 +27,7 @@ class Display {
         int pointer;
         void prepareForPrint();
         void printPointer();
-        void printPointer(int alignment);
+        void printPointer(uint8_t alignment);
         char statusMap[3][STATUS_MAX_LENGTH] = {
             "not defined",
             "not connected",

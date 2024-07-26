@@ -15,3 +15,6 @@
 #define DOWN_BUTTON_PIN 10
 #define OK_BUTTON_PIN 11
 #define CALL_BUTTON_PIN 3
+
+#define CALL_TIME 5
+#define BETWEEN_CALL_TIME 10

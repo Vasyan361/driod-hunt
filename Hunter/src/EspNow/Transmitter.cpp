@@ -30,12 +30,6 @@ void Transmitter::init(uint8_t droidAddresses[][6])
 
 void Transmitter::send()
 {
-    if (isCall && millis() - timer >= 3000)
-    {
-        hunterData.code = 0;
-        isCall = false;
-    }
-    
     esp_now_send(0, (uint8_t *) &hunterData, sizeof(hunterData));
 }
 
@@ -44,7 +38,5 @@ void Transmitter::setCode(uint8_t code)
     if (hunterData.code != code)
     {
         hunterData.code = code;
-        timer = millis();
-        isCall = true;
     }
 }

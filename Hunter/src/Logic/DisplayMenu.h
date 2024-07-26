@@ -5,21 +5,30 @@
 #include "../Devices/Display.h"
 #include "../EspNow/StatusContainer.h"
 #include "../EspNow/Receiver.h"
+#include "../EspNow/Transmitter.h"
+#include "../EspNow/ControlCodes.h"
 
 class DisplayMenu
 {
     public:
-        void init(StatusContainer* statusContainer, Receiver* receiver);
+        void init(StatusContainer* statusContainer, Receiver* receiver, Transmitter* transmitter);
         void navigate();
         void okButtonClick();
         void upButtonClick();
         void downButtonClick();
         void backButtonClick();
+        void callButtonClick();
     private:
         Display display = Display();
+        Transmitter* transmitter;
         uint8_t mode = 0;
         int8_t pointer = 0;
         uint8_t currentDroid = 0;
+        uint32_t lastCallTime = 0;
+        int16_t callInterval = 0;
+        int16_t betWeenCallInterval = 0;
+        bool isCall = false;
+        bool canCall = true;
         enum {
             MAIN_SCREEN,
             DROID_SETTINGS,
@@ -63,4 +72,5 @@ class DisplayMenu
             0, //CALL_SCREN => MAIN_SCREEN
         };
         void modeAction();
+        void calculateCallTimers();
 };

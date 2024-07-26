@@ -22,7 +22,7 @@ void Display::init(StatusContainer* statusContainer, Receiver* receiver)
     delay(1000);
 }
 
-void Display::setPointer(int pointer)
+void Display::setPointer(uint8_t pointer)
 {
     Display::pointer = pointer;
 }
@@ -41,20 +41,25 @@ void Display::printPointer()
     printPointer(0);
 }
 
-void Display::printPointer(int alignment)
+void Display::printPointer(uint8_t alignment)
 {
     oled.setCursor(0, 8 * (pointer + alignment));
     oled.print(">");
 }
 
-void Display::mainScreen()
+void Display::mainScreen(int16_t callInterval, int16_t betWeenCallInterval)
 {
     prepareForPrint();
 
-    oled.print(F(
-        "     Droid Hunt\n"
-        "=====================\n"
-    ));
+    if (callInterval > 0) {
+        oled.printf("     Calling %ds\n" , callInterval);
+    } else if (betWeenCallInterval > 0) {
+        oled.printf("      Wait %ds\n" , betWeenCallInterval);
+    } else {
+        oled.print(F("    Ready to call\n"));
+    }
+
+    oled.print(F("=====================\n"));
 
     for (uint8_t i = 0; i < MAX_DROIDS_COUNT; i++)
     {

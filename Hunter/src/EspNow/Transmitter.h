@@ -14,6 +14,4 @@ class Transmitter
         void setCode(uint8_t code);
     private:
         esp_now_peer_info_t peerInfo = {};
-        u_int32_t timer;
-        bool isCall = false;
 };

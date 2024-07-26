@@ -4,12 +4,11 @@
 #include <OneButton.h>
 #include "../../Config.h"
 #include "../Logic/DisplayMenu.h"
-#include "../EspNow/Transmitter.h"
 
 class ButtonsControl
 {
     public:
-        void init(DisplayMenu* displayMenu, Transmitter* transmitter);
+        void init(DisplayMenu* displayMenu);
         void readInput();
         void backButtonClick();
         void upButtonClick();
@@ -32,6 +31,5 @@ class ButtonsControl
             CALL_BUTTON,
         } buttonNames;
         DisplayMenu* displayMenu;
-        Transmitter* transmitter;
 };
 
