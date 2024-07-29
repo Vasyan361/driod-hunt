@@ -6,10 +6,9 @@ void HunterLogic::init(uint8_t droidAddresses[][6], const char * WIFI_FTM_SSID, 
 
     initWiFi(WIFI_FTM_SSID, WIFI_FTM_PASS);
 
-    statusContainer.init();
     transmitter.init(droidAddresses);
     receiver.init();
-    displayMenu.init(&statusContainer, &receiver, &transmitter);
+    displayMenu.init(&receiver, &transmitter);
     buttonsControl.init(&displayMenu);
 }
 

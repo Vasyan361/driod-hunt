@@ -3,7 +3,6 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <esp_now.h>
-#include "../EspNow/StatusContainer.h"
 #include "DisplayMenu.h"
 #include "../Devices/ButtonsControl.h"
 #include "../EspNow/Transmitter.h"
@@ -16,7 +15,6 @@ class HunterLogic
         void init(uint8_t droidAddresses[][6], const char * WIFI_FTM_SSID, const char * WIFI_FTM_PASS);
         void run();
     private:
-        StatusContainer statusContainer;
         DisplayMenu displayMenu;
         ButtonsControl buttonsControl;
         Transmitter transmitter;
