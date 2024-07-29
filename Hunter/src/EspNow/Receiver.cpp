@@ -33,7 +33,7 @@ uint32_t Receiver::getDistance(uint8_t id)
     return droidsData[id].distance;
 }
 
-uint8_t Receiver::getConnectionStatus(uint8_t id)
+uint8_t Receiver::getStatus(uint8_t id)
 {
-    return millis() - lastReciveTimers[id] < 200 ? STATUS_CONNECTED : STATUS_NOT_CONNECTED;
+    return millis() - lastReciveTimers[id] < 200 ? droidsData[id].status : STATUS_NOT_CONNECTED;
 }

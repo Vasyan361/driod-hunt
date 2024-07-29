@@ -10,6 +10,6 @@ class Receiver
     public:
         void init();
         uint32_t getDistance(uint8_t id);
-        uint8_t getConnectionStatus(uint8_t id);
+        uint8_t getStatus(uint8_t id);
     private:
 };

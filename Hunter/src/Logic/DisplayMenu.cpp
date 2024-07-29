@@ -1,9 +1,9 @@
 #include "DisplayMenu.h"
 
-void DisplayMenu::init(StatusContainer* statusContainer, Receiver* receiver, Transmitter* transmitter)
+void DisplayMenu::init(Receiver* receiver, Transmitter* transmitter)
 {
     DisplayMenu::transmitter = transmitter;
-    display.init(statusContainer, receiver);
+    display.init(receiver);
 }
 
 void DisplayMenu::navigate()
@@ -84,6 +84,7 @@ void DisplayMenu::calculateCallTimers()
             callInterval = CALL_TIME - (lastCallIntervall / 1000);
             if (callInterval <= 0) {
                 isCall = false;
+                transmitter->setCode(CONTROL_CODE_DEFAULT);
             }
         }
         
@@ -91,7 +92,5 @@ void DisplayMenu::calculateCallTimers()
         if (betWeenCallInterval <= 0) {
             canCall = true;
         }
-    } else {
-        transmitter->setCode(CONTROL_CODE_DEFAULT);
     }
 }

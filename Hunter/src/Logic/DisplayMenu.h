@@ -3,7 +3,6 @@
 #include <Arduino.h>
 #include "../../Config.h"
 #include "../Devices/Display.h"
-#include "../EspNow/StatusContainer.h"
 #include "../EspNow/Receiver.h"
 #include "../EspNow/Transmitter.h"
 #include "../EspNow/ControlCodes.h"
@@ -11,7 +10,7 @@
 class DisplayMenu
 {
     public:
-        void init(StatusContainer* statusContainer, Receiver* receiver, Transmitter* transmitter);
+        void init(Receiver* receiver, Transmitter* transmitter);
         void navigate();
         void okButtonClick();
         void upButtonClick();

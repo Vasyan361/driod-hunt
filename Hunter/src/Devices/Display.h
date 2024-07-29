@@ -6,14 +6,13 @@
 #include <Adafruit_SH110X.h>
 #include "../../Config.h"
 #include "../EspNow/StatusCodes.h"
-#include "../EspNow/StatusContainer.h"
 #include "../EspNow/Receiver.h"
 
 #define STATUS_MAX_LENGTH 50
 
 class Display {
     public:
-        void init(StatusContainer* statusContainer, Receiver* receiver);
+        void init(Receiver* receiver);
         void setPointer(uint8_t pointer);
         void mainScreen(int16_t callInterval, int16_t betWeenCallInterval);
         void droidSettingsScreen(uint8_t serialNumber);
@@ -22,7 +21,6 @@ class Display {
         void callScreen();
     private:
         Adafruit_SH1106G oled = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-        StatusContainer* statusContainer;
         Receiver* receiver;
         int pointer;
         void prepareForPrint();

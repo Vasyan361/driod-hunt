@@ -1,8 +1,7 @@
 #include "Display.h"
 
-void Display::init(StatusContainer* statusContainer, Receiver* receiver)
+void Display::init(Receiver* receiver)
 {
-    Display::statusContainer = statusContainer;
     Display::receiver = receiver;
 
     Wire.setPins(I2C_SDA, I2C_SCL);
@@ -63,11 +62,11 @@ void Display::mainScreen(int16_t callInterval, int16_t betWeenCallInterval)
 
     for (uint8_t i = 0; i < MAX_DROIDS_COUNT; i++)
     {
-        if (STATUS_CONNECTED == receiver->getConnectionStatus(i))
+        if (STATUS_CONNECTED == receiver->getStatus(i))
         {
-            oled.printf(" %d %s %d\n", i + 1, statusMap[statusContainer->getStatus(i)], receiver->getDistance(i));
+            oled.printf(" %d %s %d\n", i + 1, statusMap[receiver->getStatus(i)], receiver->getDistance(i));
         } else {
-            oled.printf(" %d %s\n", i + 1, statusMap[statusContainer->getStatus(i)]);
+            oled.printf(" %d %s\n", i + 1, statusMap[receiver->getStatus(i)]);
         }
     }
 
