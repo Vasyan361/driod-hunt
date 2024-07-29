@@ -19,7 +19,9 @@ void DriodLigic::run()
     if (millis() - timer >= 20) {
         // ftm.callFtmReport();
         // transmitter.send(ftm.getDistance());
-        transmitter.send(0);
+        transmitter.setDistance(0);
+        transmitter.setStatus(STATUS_CONNECTED);
+        transmitter.send();
     }
 
     if (receiver.getCode() != peviousCode)

@@ -8,7 +8,9 @@ class Transmitter
 {
     public:
         void init(uint8_t hunterAddress[6]);
-        void send(uint32_t distance);
+        void setDistance(uint32_t distance);
+        void setStatus(uint8_t status);
+        void send();
     private:
         esp_now_peer_info_t peerInfo = {};
 };

@@ -24,8 +24,17 @@ void Transmitter::init(uint8_t hunterAddress[6])
     }
 }
 
-void Transmitter::send(uint32_t distance)
+void Transmitter::setDistance(uint32_t distance)
 {
     droidData.distance = distance;
+}
+
+void Transmitter::setStatus(uint8_t status)
+{
+    droidData.status = status;
+}
+
+void Transmitter::send()
+{
     esp_now_send(0, (uint8_t *) &droidData, sizeof(droidData));
 }

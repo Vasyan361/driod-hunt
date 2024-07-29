@@ -6,6 +6,7 @@
 #include "../EspNow/Receiver.h"
 #include "../EspNow/Transmitter.h"
 #include "../EspNow/ControlCodes.h"
+#include "../EspNow/StatusCodes.h"
 #include "../Ftm/Ftm.h"
 #include "../Devices/Sound.h"
 #include "../Devices/VibrationMotor.h"

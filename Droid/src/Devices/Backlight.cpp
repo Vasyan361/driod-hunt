@@ -28,11 +28,14 @@ void Backlight::run()
         red = 0;
         green = 255;
         blue = 0;
+
+        break;
     case 2:
         red = 0;
         green = 0;
         blue = 255;
-    
+
+        break;
     default:
         break;
     }
