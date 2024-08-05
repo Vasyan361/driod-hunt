@@ -27,5 +27,8 @@ class DriodLigic
         Backlight backlight;
         uint8_t peviousCode = 0;
         uint32_t timer = 0;
+        uint32_t callTimer = 0;
+        uint16_t callTimeout = 0;
+        bool isCall = false;
         void droidActions();
 };

@@ -2,6 +2,8 @@
 
 void DriodLigic::init(uint8_t hunterAddress[6], const char * ssid, const char * password)
 {
+    callTimeout = CALL_TIME * 1000;
+
     Serial.begin(115200);
 
     initWiFi();
@@ -41,6 +43,7 @@ void DriodLigic::initWiFi()
     }
 }
 
+/// @brief 
 void DriodLigic::droidActions()
 {
     switch (peviousCode)
@@ -48,11 +51,22 @@ void DriodLigic::droidActions()
     case CONTROL_CODE_DEFAULT:
         vibrationMotor.stop();
         backlight.stop();
+
         break;
     case CONTROL_CODE_CALL:
-        sound.play();
-        vibrationMotor.run();
-        backlight.run();
+        if (!isCall) {
+            callTimer = millis();
+            isCall = true;
+        } else if(millis() - callTimer <= callTimeout) {
+            sound.play();
+            vibrationMotor.run();
+            backlight.run();
+        } else {
+            isCall = false;
+            vibrationMotor.stop();
+            backlight.stop();
+        }
+        
         break;
     default:
         break;
