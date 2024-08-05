@@ -43,7 +43,6 @@ void DriodLigic::initWiFi()
     }
 }
 
-/// @brief 
 void DriodLigic::droidActions()
 {
     switch (peviousCode)
@@ -54,21 +53,40 @@ void DriodLigic::droidActions()
 
         break;
     case CONTROL_CODE_CALL:
-        if (!isCall) {
-            callTimer = millis();
-            isCall = true;
-        } else if(millis() - callTimer <= callTimeout) {
-            sound.play();
-            vibrationMotor.run();
-            backlight.run();
-        } else {
-            isCall = false;
-            vibrationMotor.stop();
-            backlight.stop();
+        if (!isCaught) {
+            callDroid();
         }
+
+        break;
+    case CONTROL_CODE_CAUGHT:
+        isCaught = true;
         
+        break;
+    case CONTROL_CODE_RETURN_TO_GAME:
+        isCaught = false;
+
+        break;
+    case CONTROL_CODE_CALL_SEPARATALY:
+        callDroid();
+
         break;
     default:
         break;
+    }
+}
+
+void DriodLigic::callDroid()
+{
+    if (!isCall) {
+        callTimer = millis();
+        isCall = true;
+    } else if(millis() - callTimer <= callTimeout) {
+        sound.play();
+        vibrationMotor.run();
+        backlight.run();
+    } else {
+        isCall = false;
+        vibrationMotor.stop();
+        backlight.stop();
     }
 }

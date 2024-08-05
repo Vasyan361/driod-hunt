@@ -30,5 +30,7 @@ class DriodLigic
         uint32_t callTimer = 0;
         uint16_t callTimeout = 0;
         bool isCall = false;
+        bool isCaught = false;
         void droidActions();
+        void callDroid();
 };
