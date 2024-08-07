@@ -6,11 +6,9 @@ typedef struct HunterData {
     uint8_t code = 0;
 } HunterData;
 
-HunterData hunterData;
-
+HunterData hunterData[DROIDS_COUNT];
+    
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
-    uint8_t macAddres[6];
-    memcpy(&mac_addr, macAddres, sizeof(mac_addr));
 }
 
 void Transmitter::init(uint8_t droidAddresses[][6])
@@ -22,6 +20,7 @@ void Transmitter::init(uint8_t droidAddresses[][6])
 
     for (uint8_t i = 0; i < DROIDS_COUNT; i++) {
         memcpy(peerInfo.peer_addr, droidAddresses[i], 6);
+        memcpy(Transmitter::droidAddresses[i], droidAddresses[i], 6);
         if (esp_now_add_peer(&peerInfo) != ESP_OK){
             return;
         }
@@ -30,13 +29,23 @@ void Transmitter::init(uint8_t droidAddresses[][6])
 
 void Transmitter::send()
 {
-    esp_now_send(0, (uint8_t *) &hunterData, sizeof(hunterData));
+    for (uint8_t i = 0; i < DROIDS_COUNT; i++) {
+        esp_now_send(droidAddresses[i], (uint8_t *) &hunterData[i], sizeof(hunterData[i]));
+    }
 }
 
 void Transmitter::setCode(uint8_t code)
 {
-    if (hunterData.code != code)
-    {
-        hunterData.code = code;
+    for (uint8_t i = 0; i < DROIDS_COUNT; i++) {
+        if (hunterData[i].code != code) {
+            hunterData[i].code = code;
+        }
+    }
+}
+
+void Transmitter::setCode(uint8_t code, uint8_t id)
+{
+    if (hunterData[id].code != code) {
+        hunterData[id].code = code;
     }
 }
