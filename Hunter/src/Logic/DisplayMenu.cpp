@@ -23,6 +23,7 @@ void DisplayMenu::navigate()
 
 void DisplayMenu::okButtonClick()
 {
+    peviousMode = mode;
     mode = nextModeMap[mode][pointer];
     
     if (mode > maxMode) {
@@ -71,7 +72,56 @@ void DisplayMenu::modeAction()
 {
     switch (mode)
     {
-        case DROID_SETTINGS: currentDroid = pointer + 1; break;
+        case DROID_SETTINGS: 
+            currentDroid = pointer + 1;
+            currentDroidId = pointer;
+            
+            break;
+        default: break;
+    }
+
+    switch (peviousMode)
+    {
+        case DROID_SETTINGS: 
+            droidSettingActions();
+            
+            break;
+        case SETTINGS: 
+            settingActions();
+            
+            break;
+        default: break;
+    }
+}
+
+void DisplayMenu::droidSettingActions()
+{
+    switch (pointer)
+    {
+        case DROID_SETTING_CODE_CAUGHT: 
+            transmitter->setCode(CONTROL_CODE_CAUGHT, currentDroidId);
+            
+            break;
+        case DROID_SETTING_CODE_RETURN_TO_GAME: 
+            transmitter->setCode(CONTROL_CODE_RETURN_TO_GAME, currentDroidId);
+            
+            break;
+        case DROID_SETTING_CODE_CALL_SEPARATELY: 
+            transmitter->setCode(CONTROL_CODE_CALL_SEPARATALY, currentDroidId);
+            
+            break;
+        default: break;
+    }
+}
+
+void DisplayMenu::settingActions()
+{
+    switch (pointer)
+    {
+        case SETTING_CODE_FINISH_THE_GAME: 
+            transmitter->setCode(CONTROL_CODE_FINISH_THE_GAME);
+            
+            break;
         default: break;
     }
 }

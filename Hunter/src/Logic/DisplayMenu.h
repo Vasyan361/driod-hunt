@@ -21,8 +21,10 @@ class DisplayMenu
         Display display = Display();
         Transmitter* transmitter;
         uint8_t mode = 0;
+        uint8_t peviousMode = 0;
         int8_t pointer = 0;
         uint8_t currentDroid = 0;
+        uint8_t currentDroidId = 0;
         uint32_t lastCallTime = 0;
         int16_t callInterval = 0;
         int16_t betWeenCallInterval = 0;
@@ -35,6 +37,15 @@ class DisplayMenu
             OK_SCREN,
             CALL_SCREN,
         } modes;
+        enum {
+            DROID_SETTING_CODE_CAUGHT,
+            DROID_SETTING_CODE_RETURN_TO_GAME,
+            DROID_SETTING_CODE_CALL_SEPARATELY,
+        } droidSettingCodes;
+        enum {
+            SETTING_CODE_SET_GAME_TIME,
+            SETTING_CODE_FINISH_THE_GAME,
+        } settingCodes;
         int maxMode = 4;
         int maxPointerByMode[5] {
             5, //MAIN_SCREEN
@@ -58,9 +69,8 @@ class DisplayMenu
                 4, //DROID_SETTINGS => CALL_SCREN
             },
             {
-                3, //SETTINGS => SETTINGS
-                3, //SETTINGS => SETTINGS
-                3, //SETTINGS => SETTINGS
+                3, //SETTINGS => OK_SCREN
+                3, //SETTINGS => OK_SCREN
             },
         };
         int previousModeMap[5] {
@@ -71,5 +81,7 @@ class DisplayMenu
             0, //CALL_SCREN => MAIN_SCREEN
         };
         void modeAction();
+        void droidSettingActions();
+        void settingActions();
         void calculateCallTimers();
 };
