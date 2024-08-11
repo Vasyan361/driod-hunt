@@ -13,6 +13,7 @@ class Transmitter
         void send();
         void setCode(uint8_t code);
         void setCode(uint8_t code, uint8_t id);
+        void setGameTime(uint16_t gameTime);
     private:
         esp_now_peer_info_t peerInfo = {};
         uint8_t droidAddresses[DROIDS_COUNT][6];

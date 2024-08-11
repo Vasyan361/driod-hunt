@@ -30,10 +30,12 @@ class DisplayMenu
         int16_t betWeenCallInterval = 0;
         bool isCall = false;
         bool canCall = true;
+        int16_t gameTime = MAX_GAME_TIME;
         enum {
             MAIN_SCREEN,
             DROID_SETTINGS,
             SETTINGS,
+            SET_GAME_TIME_SCREEN,
             OK_SCREN,
             CALL_SCREN,
         } modes;
@@ -46,15 +48,16 @@ class DisplayMenu
             SETTING_CODE_SET_GAME_TIME,
             SETTING_CODE_FINISH_THE_GAME,
         } settingCodes;
-        int maxMode = 4;
-        int maxPointerByMode[5] {
+        int maxMode = 5;
+        int maxPointerByMode[6] {
             5, //MAIN_SCREEN
             2, //DROID_SETTINGS
             2, //SETTINGS
+            0, //SET_TIME_SCREEN    
             0, //OK_SCREN
             0, //CALL_SCREN
         };
-        int nextModeMap[3][6] {
+        int nextModeMap[4][6] {
             {
                 1, //MAIN_SCREEN => DROID_SETTINGS
                 1, //MAIN_SCREEN => DROID_SETTINGS
@@ -64,13 +67,16 @@ class DisplayMenu
                 2, //MAIN_SCREEN => SETTINGS
             },
             {
-                3, //DROID_SETTINGS => OK_SCREN
-                3, //DROID_SETTINGS => OK_SCREN
-                4, //DROID_SETTINGS => CALL_SCREN
+                4, //DROID_SETTINGS => OK_SCREN
+                4, //DROID_SETTINGS => OK_SCREN
+                5, //DROID_SETTINGS => CALL_SCREN
             },
             {
-                3, //SETTINGS => OK_SCREN
-                3, //SETTINGS => OK_SCREN
+                3, //SETTINGS => SET_GAME_TIME_SCREEN
+                4, //SETTINGS => OK_SCREN
+            },
+            {
+                4, //SET_GAME_TIME_SCREEN => OK_SCREN
             },
         };
         int previousModeMap[5] {

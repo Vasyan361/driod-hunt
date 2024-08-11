@@ -19,6 +19,7 @@ class Display {
         void settingsScreen();
         void okScreen();
         void callScreen();
+        void setGameTimeScreen(uint16_t time);
     private:
         Adafruit_SH1106G oled = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
         Receiver* receiver;

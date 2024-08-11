@@ -17,4 +17,6 @@
 #define CALL_BUTTON_PIN 3
 
 #define CALL_TIME 5
-#define BETWEEN_CALL_TIME 10
+#define BETWEEN_CALL_TIME 10    
+#define MAX_GAME_TIME 240
+#define SET_GAME_TIME_STEP 30

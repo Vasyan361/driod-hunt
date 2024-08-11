@@ -132,3 +132,24 @@ void Display::callScreen()
         oled.display();
     }
 }
+
+void Display::setGameTimeScreen(uint16_t time)
+{
+    prepareForPrint();
+    oled.print(F(
+        "    Set game time\n"
+        "=====================\n\n"
+    ));
+
+    oled.setTextSize(5);
+
+    uint16_t minuts = time % 60;
+    if (minuts == 0) {
+        oled.printf("%d:00", time / 60);
+    } else {
+        oled.printf("%d:%d", time / 60, minuts);
+    }
+    
+    
+    oled.display();
+}

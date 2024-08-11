@@ -4,6 +4,7 @@ String macStrings[DROIDS_COUNT];
 
 typedef struct HunterData {
     uint8_t code = 0;
+    uint16_t gameTime = MAX_GAME_TIME;
 } HunterData;
 
 HunterData hunterData[DROIDS_COUNT];
@@ -47,5 +48,12 @@ void Transmitter::setCode(uint8_t code, uint8_t id)
 {
     if (hunterData[id].code != code) {
         hunterData[id].code = code;
+    }
+}
+
+void Transmitter::setGameTime(uint16_t gameTime)
+{
+    for (uint8_t i = 0; i < DROIDS_COUNT; i++) {
+        hunterData[i].gameTime = gameTime;
     }
 }

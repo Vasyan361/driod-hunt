@@ -15,6 +15,7 @@ void DisplayMenu::navigate()
         case MAIN_SCREEN: display.mainScreen(callInterval, betWeenCallInterval); break;
         case DROID_SETTINGS: display.droidSettingsScreen(currentDroid); break;
         case SETTINGS: display.settingsScreen(); break;
+        case SET_GAME_TIME_SCREEN: display.setGameTimeScreen(gameTime); break;
         case OK_SCREN: display.okScreen(); mode = MAIN_SCREEN; break;
         case CALL_SCREN: display.callScreen(); mode = MAIN_SCREEN; break;
         default: break;
@@ -41,6 +42,15 @@ void DisplayMenu::upButtonClick()
     if (pointer < 0) {
         pointer = maxPointerByMode[mode];
     }
+
+    if (mode == SET_GAME_TIME_SCREEN) {
+        gameTime+=SET_GAME_TIME_STEP;
+
+        if (gameTime > MAX_GAME_TIME) {
+            gameTime = SET_GAME_TIME_STEP;
+        }
+    }
+    
 }
 
 void DisplayMenu::downButtonClick()
@@ -48,6 +58,14 @@ void DisplayMenu::downButtonClick()
     pointer++;
     if (pointer > maxPointerByMode[mode]) {
        pointer = 0;
+    }
+
+    if (mode == SET_GAME_TIME_SCREEN) {
+        gameTime-=SET_GAME_TIME_STEP;
+
+        if (gameTime < 30) {
+            gameTime = 240;
+        }
     }
 }
 
@@ -88,6 +106,9 @@ void DisplayMenu::modeAction()
             break;
         case SETTINGS: 
             settingActions();
+        case SET_GAME_TIME_SCREEN: 
+            transmitter->setCode(CONTROL_CODE_SET_GAME_TIME);
+            transmitter->setGameTime(gameTime);
             
             break;
         default: break;
