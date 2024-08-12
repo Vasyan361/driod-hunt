@@ -1,3 +1,6 @@
+#define LOCALE_RU
+// #define LOCALE_EN
+
 #define DROIDS_COUNT 1
 #define MAX_DROIDS_COUNT 5
 

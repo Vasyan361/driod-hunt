@@ -3,9 +3,18 @@
 #include <Arduino.h>
 #include "../../Config.h"
 #include "../Devices/Display.h"
+#include "../Devices/Display/BaseDisplay.h"
 #include "../EspNow/Receiver.h"
 #include "../EspNow/Transmitter.h"
 #include "../EspNow/ControlCodes.h"
+
+#ifdef LOCALE_RU
+#include "../Devices/Display/DisplayRu.h"
+#endif
+
+#ifdef LOCALE_EN
+#include "../Devices/Display/DisplayEn.h"
+#endif
 
 class DisplayMenu
 {
@@ -18,7 +27,12 @@ class DisplayMenu
         void backButtonClick();
         void callButtonClick();
     private:
-        Display display = Display();
+        #ifdef LOCALE_RU
+        DisplayRu display = DisplayRu();
+        #endif
+        #ifdef LOCALE_EN
+        DisplayEn display = DisplayEn();
+        #endif
         Transmitter* transmitter;
         uint8_t mode = 0;
         uint8_t peviousMode = 0;
