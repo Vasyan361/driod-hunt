@@ -3,6 +3,7 @@
 void DriodLigic::init(uint8_t hunterAddress[6], const char * ssid, const char * password)
 {
     callTimeout = CALL_TIME * 1000;
+    gameTime = GAME_TIME * 60 * 1000;
 
     Serial.begin(115200);
 
@@ -68,6 +69,10 @@ void DriodLigic::droidActions()
         break;
     case CONTROL_CODE_CALL_SEPARATALY:
         callDroid();
+
+        break;
+    case CONTROL_CODE_SET_GAME_TIME:
+        gameTime = receiver.getGameTime() * 60 * 1000;
 
         break;
     default:

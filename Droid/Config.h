@@ -8,3 +8,5 @@
 #define LIGHT_PIN 3
 
 #define CALL_TIME 5
+
+#define GAME_TIME 240

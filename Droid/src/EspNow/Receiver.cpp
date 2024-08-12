@@ -1,8 +1,8 @@
 #include "Receiver.h"
-#include "../../Config.h"
 
 typedef struct HunterData {
     uint8_t code = 0;
+    uint16_t gameTime = GAME_TIME;
 } HunterData;
 
 HunterData hunterData;
@@ -19,4 +19,9 @@ void Receiver::init()
 uint8_t Receiver::getCode()
 {
     return hunterData.code;
+}
+
+uint16_t Receiver::getGameTime()
+{
+    return hunterData.gameTime;
 }
