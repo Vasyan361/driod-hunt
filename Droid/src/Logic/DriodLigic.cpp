@@ -11,7 +11,7 @@ void DriodLigic::init(uint8_t hunterAddress[6], const char * ssid, const char * 
     
     receiver.init();
     transmitter.init(hunterAddress);
-    // ftm.init(ssid, password);
+    ftm.init(ssid, password);
     sound.init();
     vibrationMotor.init();
     backlight.init();
@@ -20,9 +20,8 @@ void DriodLigic::init(uint8_t hunterAddress[6], const char * ssid, const char * 
 void DriodLigic::run()
 {
     if (millis() - timer >= 20) {
-        // ftm.callFtmReport();
-        // transmitter.send(ftm.getDistance());
-        transmitter.setDistance(0);
+        ftm.callFtmReport();
+        transmitter.setDistance(ftm.getDistance());
         transmitter.setStatus(STATUS_CONNECTED);
         transmitter.send();
     }

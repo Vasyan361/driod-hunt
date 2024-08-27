@@ -25,7 +25,7 @@ void HunterLogic::run()
 
 void HunterLogic::initWiFi(const char * WIFI_FTM_SSID, const char * WIFI_FTM_PASS)
 {
-    WiFi.mode(WIFI_STA);
+    WiFi.mode(WIFI_MODE_APSTA);
  
     if (esp_now_init() != ESP_OK) {
         return;
