@@ -32,6 +32,10 @@ class DriodLigic
         bool isCall = false;
         bool isCaught = false;
         uint32_t gameTime = 0;
+        uint8_t currentStatus = STATUS_NOT_CONNECTED;
         void droidActions();
         void callDroid();
+        void stopDroid();
+        void callByTimer();
+        bool isInRange();
 };

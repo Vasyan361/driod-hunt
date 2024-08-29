@@ -20,9 +20,10 @@ void DriodLigic::init(uint8_t hunterAddress[6], const char * ssid, const char * 
 void DriodLigic::run()
 {
     if (millis() - timer >= 20) {
+        timer = millis();
         ftm.callFtmReport();
         transmitter.setDistance(ftm.getDistance());
-        transmitter.setStatus(STATUS_CONNECTED);
+        transmitter.setStatus(currentStatus);
         transmitter.send();
     }
 
@@ -48,22 +49,28 @@ void DriodLigic::droidActions()
     switch (peviousCode)
     {
     case CONTROL_CODE_DEFAULT:
-        vibrationMotor.stop();
-        backlight.stop();
+        stopDroid();
 
         break;
     case CONTROL_CODE_CALL:
         if (!isCaught) {
-            callDroid();
+            if (isInRange()) {
+                currentStatus = STATUS_CONNECTED;
+                callByTimer();
+            }else {
+                currentStatus = STATUS_OUT_OF_RANGE;
+            }
         }
 
         break;
     case CONTROL_CODE_CAUGHT:
         isCaught = true;
+        currentStatus = STATUS_CAUGHT;
         
         break;
     case CONTROL_CODE_RETURN_TO_GAME:
         isCaught = false;
+        currentStatus = STATUS_CONNECTED;
 
         break;
     case CONTROL_CODE_CALL_SEPARATALY:
@@ -77,20 +84,39 @@ void DriodLigic::droidActions()
     default:
         break;
     }
+
+    if (isCall) {
+        callByTimer();
+    }
 }
 
 void DriodLigic::callDroid()
+{
+    // sound.play();
+    vibrationMotor.run();
+    backlight.run();
+}
+
+void DriodLigic::stopDroid()
+{
+    vibrationMotor.stop();
+    backlight.stop();
+}
+
+void DriodLigic::callByTimer()
 {
     if (!isCall) {
         callTimer = millis();
         isCall = true;
     } else if(millis() - callTimer <= callTimeout) {
-        sound.play();
-        vibrationMotor.run();
-        backlight.run();
+        callDroid();
     } else {
         isCall = false;
-        vibrationMotor.stop();
-        backlight.stop();
+        stopDroid();
     }
+}
+
+bool DriodLigic::isInRange()
+{
+    return ftm.getDistance() <= MIN_DISTANCE || ftm.getDistance() >= MAX_DISTANCE;
 }

@@ -10,3 +10,6 @@
 #define CALL_TIME 5
 
 #define GAME_TIME 240
+
+#define MIN_DISTANCE 100
+#define MAX_DISTANCE 100000

@@ -13,9 +13,11 @@ class DisplayRu : public BaseDisplay
         void setGameTimeScreen(uint16_t time) override;
     private:
         String utf8rus(String source);
-        char statusMap[3][STATUS_MAX_LENGTH] = {
+        char statusMap[5][STATUS_MAX_LENGTH] = {
             "не определен",
             "не подключен",
             "подключен",
+            "вне диапазона",
+            "пойман",
         };
 };
